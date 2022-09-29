@@ -5,16 +5,16 @@ public class Employee {
 	String empName ; 
 	String empGender ; 
 	int empWage ; 
-	String empDuty  ;
-	String projAssigned ; 
-	String GpoAssigned ;
+	int empDuty  ;
+	int projAssigned ; 
+	int GpoAssigned ;
 	
 	
 	
 	
 	
-	public Employee(String empName, String empGender, int empWage, String empDuty, String projAssigned,
-			String gpoAssigned) {
+	public Employee(String empName, String empGender, int empWage, int empDuty, int projAssigned,
+			int gpoAssigned) {
 		super();
 		this.empName = empName;
 		this.empGender = empGender;
@@ -25,6 +25,15 @@ public class Employee {
 	}
 	
 	
+	
+
+
+	
+
+
+
+
+
 	public int getEmpId() {
 		return empId;
 	}
@@ -49,22 +58,22 @@ public class Employee {
 	public void setEmpWage(int empWage) {
 		this.empWage = empWage;
 	}
-	public String getEmpDuty() {
+	public int getEmpDuty() {
 		return empDuty;
 	}
-	public void setEmpDuty(String empDuty) {
+	public void setEmpDuty(int empDuty) {
 		this.empDuty = empDuty;
 	}
-	public String getProjAssigned() {
+	public int getProjAssigned() {
 		return projAssigned;
 	}
-	public void setProjAssigned(String projAssigned) {
+	public void setProjAssigned(int projAssigned) {
 		this.projAssigned = projAssigned;
 	}
-	public String getGpoAssigned() {
+	public int getGpoAssigned() {
 		return GpoAssigned;
 	}
-	public void setGpoAssigned(String gpoAssigned) {
+	public void setGpoAssigned(int gpoAssigned) {
 		GpoAssigned = gpoAssigned;
 	}
 	@Override

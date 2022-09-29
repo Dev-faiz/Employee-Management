@@ -7,6 +7,9 @@ public class GPM {
 	String username ; 
 	String password ; 
 	
+	public GPM() {
+		
+	}
 	
 	public GPM(String g , String loc ,String user , String pass) {
 		
@@ -17,6 +20,16 @@ public class GPM {
 		
 	}
 
+
+
+
+	public GPM(int id2, String name, String loc, String usr, String pass) {
+		this.ID = id2 ;
+		this.gname = name ; 
+		this.location = loc ; 
+		this.username = usr ; 
+		this.password = pass ;
+	}
 
 	public int getID() {
 		return ID;

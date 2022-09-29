@@ -14,6 +14,11 @@ public class Project {
 		this.location = l ;
 		
 	}
+	public Project(int id, String name, String loc) {
+		this.projectId = id ; 
+		this.projectName = name ;
+		this.location = loc ;
+	}
 	@Override
 	public String toString() {
 		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", location=" + location + "]";

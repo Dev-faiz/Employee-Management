@@ -2,7 +2,10 @@ package com.myproject.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.myproject.bean.GPM;
 import com.myproject.exception.GPException;
@@ -17,7 +20,7 @@ public  class GPDAOImpl implements GPDAO {
 		
 		try(Connection c = DBConnect.getConnected()){
 			
-		PreparedStatement ps = c.prepareStatement("insert into  grampanchayatmember(Gname,Location,username,passworde) "+ "values(?,?,?,?);");
+		PreparedStatement ps = c.prepareStatement("insert into  grampanchayatmember(Gname,Location,username,password) "+ "values(?,?,?,?);");
 		
 			ps.setString(1, gmp.getGname());
 			ps.setString(2, gmp.getLocation());
@@ -37,12 +40,46 @@ public  class GPDAOImpl implements GPDAO {
 			c.close();
 		}catch(SQLException e) {
 			System.out.println(e.getMessage());
-//			System.out.println(e.getStackTrace());
+
+		}
+
+		return m;
+	}
+
+	@Override
+	public List<GPM> viewAllGPM() throws SQLException {
+		
+		
+		List<GPM> list = new ArrayList<>();
+		
+		
+		try(Connection c = DBConnect.getConnected()){
+			
+			PreparedStatement ps = c.prepareStatement("select * from grampanchayatmember");
+			
+			ResultSet rs =  ps.executeQuery();
+			
+			
+			while(rs.next()) {
+				
+				int id = rs.getInt("ID");
+				String name = rs.getString("Gname");
+				String loc = rs.getString("Location");
+				String usr = rs.getString("username");
+				String pass = rs.getString("password");
+				
+				list.add(new GPM(id, name, loc, usr, pass));
+				
+			}
+			
+		}catch(SQLException e) {
+			
+			System.out.println(e.getMessage());
+			
 		}
 		
 		
-
-		return m;
+		return list;
 	}
 
 
