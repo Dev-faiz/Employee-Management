@@ -34,6 +34,28 @@ public class Employee {
 
 
 
+	public Employee(int empId, String empName, String empGender, int empWage, int empDuty, int projAssigned,
+			int gpoAssigned) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.empGender = empGender;
+		this.empWage = empWage;
+		this.empDuty = empDuty;
+		this.projAssigned = projAssigned;
+		GpoAssigned = gpoAssigned;
+	}
+
+
+
+
+
+
+
+
+
+
+
 	public int getEmpId() {
 		return empId;
 	}

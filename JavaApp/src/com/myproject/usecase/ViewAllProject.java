@@ -1,5 +1,6 @@
 package com.myproject.usecase;
 
+import java.util.Formatter;
 import java.util.List;
 
 import com.myproject.bean.Project;
@@ -12,10 +13,15 @@ public class ViewAllProject {
 		
 		ProjectDAO pO = new ProjectDAOImpl();
 		
-		
+		Formatter fmt = new Formatter();
+		fmt.format("%20s %20s %20s\n", "ProjectNo","ProjectName", "Location");
+		System.out.println(fmt);
 		List<Project> list =  pO.viewAllProjects();
 		
-		list.forEach(p->System.out.println(p));
+//		System.out.println("ProjectNo");
+		list.forEach(p->System.out.println(p.forString()));
+		
+		
 		 
 	}
 }

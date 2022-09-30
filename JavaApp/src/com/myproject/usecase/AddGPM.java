@@ -33,7 +33,7 @@ public class AddGPM {
 		String message  =  gpmemeber.AddnewGPMemeber(new GPM(gname, loc, username, password));
 		
 		System.out.println(message);
-	in.close();	
+//	in.close();	
 		
 	}
 }
