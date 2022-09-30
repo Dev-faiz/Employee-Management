@@ -9,7 +9,7 @@ import com.myproject.dao.GPDAO;
 import com.myproject.dao.GPDAOImpl;
 
 public class ViewAllGPM {
-	public static void main(String[] args) throws SQLException {
+	public static void main() throws SQLException {
 		
 		GPDAO gpa = new GPDAOImpl();
 		

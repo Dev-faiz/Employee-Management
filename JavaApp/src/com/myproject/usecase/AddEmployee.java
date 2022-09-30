@@ -17,7 +17,31 @@ import com.myproject.util.DBConnect;
 
 public class AddEmployee {
 	
-	public static void main(String[] args) throws SQLException, EmployeeException {
+	public static void main2() throws SQLException, EmployeeException{
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter Name of Empolyee");
+		String ename = 	in.nextLine();
+		
+		
+		System.out.println("Enter Gender (M/F)");
+		String gender = in.nextLine();
+		
+		System.out.println("Enter wage of Employee per day");
+		int wage = in.nextInt();
+		
+		System.out.println("Enter number of days Employee is given service");
+		int day = in.nextInt();
+		
+		EmployeeDAO ed = new EmployeeDAOImpl();
+		String m =	ed.addEmployee(new Employee(ename , gender , wage , day ));	
+		System.out.println(m);
+		
+	}
+	
+	
+	public static void main() throws SQLException, EmployeeException {
 		
 		Scanner in = new Scanner(System.in);
 		

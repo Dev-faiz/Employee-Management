@@ -47,12 +47,12 @@ public class Employee {
 	}
 
 
-
-
-
-
-
-
+	public Employee(String ename, String gender, int wage, int day) {
+		this.empName = ename;
+		this.empGender = gender;
+		this.empWage = wage;
+		this.empDuty = day;
+	}
 
 
 

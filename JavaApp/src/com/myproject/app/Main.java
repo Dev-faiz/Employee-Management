@@ -14,6 +14,7 @@ import com.myproject.usecase.AddEmployee;
 import com.myproject.usecase.AddGPM;
 import com.myproject.usecase.AddProject;
 import com.myproject.usecase.AllocateProjectToGPM;
+import com.myproject.usecase.AssignEmpToProject;
 import com.myproject.usecase.FindEmp;
 import com.myproject.usecase.ViewAllGPM;
 import com.myproject.usecase.ViewAllProject;
@@ -66,19 +67,19 @@ public class Main {
 							
 							switch(BODQ) {
 								
-								case 1 : AddProject.main(args);
+								case 1 : AddProject.main();
 									break ;
-								case 2 : ViewAllProject.main(args);
+								case 2 : ViewAllProject.main();
 									break ;
-								case 3 : AddGPM.main(args);
+								case 3 : AddGPM.main();
 									break ;
-								case 4 : ViewAllGPM.main(args);
+								case 4 : ViewAllGPM.main();
 									break;
-								case 5 : AllocateProjectToGPM.main(args);
+								case 5 : AllocateProjectToGPM.main();
 									break ;
-								case 6 : ViewEmpByProject.main(args);
+								case 6 : ViewEmpByProject.main();
 									break;
-								case 7 : flag = false ;
+								case 7 : System.exit(0); ;
 									break ;	
 							}
 							break ; 
@@ -118,16 +119,16 @@ public class Main {
 				
 				switch(query) {
 				
-					case 1 : AddEmployee.main(args);
+					case 1 : AddEmployee.main2();
 						break ;
 						
-					case 2 : FindEmp.main(args);
+					case 2 : FindEmp.main();
 						break;
 					
-					case 3 :
+					case 3 : AssignEmpToProject.main();
 						break ;
 					
-					case 4 : 
+					case 4 : ViewEmpByProject.main();
 						break ;
 						
 					case 5 : System.exit(0);

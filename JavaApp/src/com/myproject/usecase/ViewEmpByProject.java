@@ -10,7 +10,7 @@ import com.myproject.dao.EmployeeDAOImpl;
 
 public class ViewEmpByProject {
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main() throws SQLException {
 		
 		
 		Scanner in = new Scanner(System.in);

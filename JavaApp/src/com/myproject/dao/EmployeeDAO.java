@@ -21,7 +21,12 @@ public interface EmployeeDAO  {
 	
 	public List<String> checkWageByProject(String projName) throws EmployeeException , SQLException ;
 		
-		
+	public String assignProjToEmp(String pname , int Id , String ename) throws EmployeeException , SQLException ;
+	
+	
+	public String addEmloyee1(Employee e) throws EmployeeException , SQLException ;
+	
+	
 		
 	
 	

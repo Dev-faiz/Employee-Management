@@ -10,7 +10,7 @@ import com.myproject.exception.GPException;
 
 public class AddGPM {
 	 
-	public static void main(String[] args) throws SQLException, GPException {
+	public static void main() throws SQLException, GPException {
 		
 		
 		Scanner in = new Scanner(System.in);

@@ -54,7 +54,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return message;
 	}
 
-	
 	@Override
 	public boolean backEndUserCheck(String username, String password) throws SQLException {
 		BackEndDev bed = new BackEndDev();
@@ -87,7 +86,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		
 		
 	}
-
 
 	@Override
 	public List<String> viewEmpByProjectName(String proj) throws SQLException {
@@ -159,9 +157,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		
 	}
 
-
-	
-	
 	@Override
 	public Employee checkEmployee(String empN , int id) throws EmployeeException, SQLException {
 		
@@ -205,11 +200,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return em;
 	}
 
-
 	@Override
 	public List<String> checkWageByProject(String projName) throws EmployeeException, SQLException {
 		
-		List<String> l = new ArrayList<>();
+//		List<String> l = new ArrayList<>();
 		
 		
 		try(Connection c = DBConnect.getConnected()){
@@ -219,14 +213,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			
 			ps.setString(1, projName);
 			ResultSet rs = ps.executeQuery();
-				
+				Formatter f = new Formatter();
+				Formatter e = new Formatter();
+				f.format("%20s %20s %20s %20s\n", "EmpId","EmpName","EmpWorkingDay","Toale");
+				System.out.println(f);
 			while(rs.next()) {
 				
 				int id = rs.getInt("empId");
 				String name = rs.getString("empName");
 				int dd = rs.getInt("empdutyday");
 				int to = rs.getInt("total");
-				System.out.println(id + " " + name + " " + dd + " " + to);
+				e.format("%20s %20s %20s %20s\n", id,name,dd,to);
+				System.out.println(e);
 			}
 		}catch(SQLException e ) {
 			
@@ -237,5 +235,67 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		
 		return null;
 	}
+
+	@Override
+	public String assignProjToEmp(String pname, int id , String ename) throws EmployeeException, SQLException {
+		String message = "Error in Assigning" ;
+		
+		
+		try(Connection c = DBConnect.getConnected()){
+			
+			PreparedStatement  ps = c.prepareStatement("update employee set projAssigned = (select ProjectNo from projects where pname = ?) where empId = ? and empname = ?");
+			
+			ps.setString(1, pname);
+			ps.setInt(2, id);
+			ps.setString(3, ename);
+			
+			int n = ps.executeUpdate();
+			
+			if(n > 0) {
+				message = "Updated Successfully";
+			}
+		}catch(SQLException e) {
+			
+			
+			
+		}
+		
+		return message;
+	}
+
+	
+	
+	@Override
+	public String addEmloyee1(Employee e) throws EmployeeException, SQLException {
+		String message = "Employee is not added" ;
+		
+		try(Connection c = DBConnect.getConnected()){
+			
+			PreparedStatement ps = c.prepareStatement("into employee(EmpName,EmpGender,EmpWage,EmpDutyDay) values(?,?,?,?);");
+				
+				ps.setString(1, e.getEmpName());
+				ps.setString(2, e.getEmpGender());
+				ps.setInt(3, e.getEmpWage());
+				ps.setInt(4, e.getEmpDuty());
+				
+				
+				int n =  ps.executeUpdate();
+				
+				if(n > 0) {
+					
+					message = "Employee Added" ;
+					
+				}
+				
+			
+		}catch(SQLException ex) {
+			
+			System.out.println(ex.getMessage());
+		}
+		
+		
+		return null;
+	}
+	
 	
 }

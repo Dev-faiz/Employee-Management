@@ -9,7 +9,7 @@ import com.myproject.dao.ProjectDAOImpl;
 
 public class ViewAllProject {
 	
-	public static void main(String[] args) {
+	public static void main() {
 		
 		ProjectDAO pO = new ProjectDAOImpl();
 		

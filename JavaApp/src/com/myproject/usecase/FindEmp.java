@@ -10,7 +10,7 @@ import com.myproject.exception.EmployeeException;
 
 public class FindEmp {
 	
-	public static void main(String[] args) throws EmployeeException, SQLException {
+	public static void main() throws EmployeeException, SQLException {
 		
 		
 		Scanner in = new Scanner(System.in);

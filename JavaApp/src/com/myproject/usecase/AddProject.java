@@ -12,7 +12,7 @@ import com.myproject.exception.ProjectException;
 
 public class AddProject {
 	
-	public static void main(String[] args) throws ProjectException, SQLException {
+	public static void main() throws ProjectException, SQLException {
 		
 		Scanner in = new Scanner(System.in);
 		System.out.println("Enter Name of Project");
