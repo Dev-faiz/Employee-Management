@@ -62,7 +62,7 @@ public class ProjectDAOImpl  implements ProjectDAO{
 			int update = ps.executeUpdate();
 			
 			if(update > 0) {
-				message = "Project" + p + "successfully assigned to " + g + "memeber";
+				message = "Project " + p + " successfully assigned to " + g + " GP memeber";
 			}
 			
 		}catch(SQLException c) {

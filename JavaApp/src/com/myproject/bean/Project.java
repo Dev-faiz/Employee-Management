@@ -1,5 +1,8 @@
 package com.myproject.bean;
 
+
+import java.util.Formatter;
+
 public class Project {
 	int projectId ; 
 	String projectName ; 
@@ -19,9 +22,10 @@ public class Project {
 		this.projectName = name ;
 		this.location = loc ;
 	}
-	@Override
-	public String toString() {
-		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", location=" + location + "]";
+
+	public Formatter forString() {
+		Formatter fmt = new Formatter();
+		return  fmt.format("%15s %29s %20s\n" ,projectId, projectName,location)  ;
 	}
 	public int getProjectId() {
 		return projectId;

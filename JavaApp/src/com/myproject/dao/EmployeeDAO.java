@@ -12,7 +12,17 @@ public interface EmployeeDAO  {
 	
 	public  boolean backEndUserCheck(String username ,String password) throws SQLException ;
 	
-	
+	public  boolean GPOUserCheck(String username ,String password) throws SQLException ;
 	public List<String> viewEmpByProjectName(String proj) throws SQLException; 
+	
+	public Employee checkEmployee(String empN, int id) throws EmployeeException , SQLException ;
+	
+	
+	
+	public List<String> checkWageByProject(String projName) throws EmployeeException , SQLException ;
+		
+		
+		
+	
 	
 }

@@ -1,5 +1,7 @@
 package com.myproject.bean;
 
+import java.util.Formatter;
+
 public class GPM {
 	int ID  ; 
 	String gname ; 
@@ -81,11 +83,13 @@ public class GPM {
 	}
 
 
-	@Override
-	public String toString() {
-		return "GPM [ID=" + ID + ", gname=" + gname + ", location=" + location + ", username=" + username
-				+ ", password=" + password + "]";
+	public Formatter forString() {
+		Formatter f = new Formatter();
+		f.format("%15s %15s %15s %15s %15s\n", ID , gname , location , username , password);
+		return f;
+		
 	}
+	
 	
 	
 }

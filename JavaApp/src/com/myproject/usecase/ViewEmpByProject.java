@@ -14,12 +14,13 @@ public class ViewEmpByProject {
 		
 		
 		Scanner in = new Scanner(System.in);
-		
+		System.out.println("Add details");
 		String x = in.nextLine();
-		System.out.println("fuck");
 		EmployeeDAO pd = new EmployeeDAOImpl();
 		
 		List<String> l = pd.viewEmpByProjectName(x);
-		l.forEach(e->System.out.println(e));
+//		System.out.println(l);
+		
+//		in.close();
 	}
 }

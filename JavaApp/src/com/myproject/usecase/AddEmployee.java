@@ -52,7 +52,7 @@ public class AddEmployee {
 		String m =	ed.addEmployee(new Employee(ename , gender , wage , day ,gId , pId));
 //		
 		System.out.println(m);
-		in.close();
+//		in.close();
 			
 
 		

@@ -28,7 +28,7 @@ public class AddProject {
 		String message  =  newProject.addProject(new Project(pname , loc));
 		
 		System.out.println(message);
-	in.close();	
+//	in.close();	
 		
 	}
 }
