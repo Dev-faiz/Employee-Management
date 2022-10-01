@@ -12,6 +12,7 @@ import com.myproject.bean.BackEndDev;
 import com.myproject.bean.Employee;
 import com.myproject.bean.GPM;
 import com.myproject.exception.EmployeeException;
+import com.myproject.util.Console;
 import com.myproject.util.DBConnect;
 
 
@@ -91,7 +92,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public List<String> viewEmpByProjectName(String proj) throws SQLException {
 		
 		List<String> l = new ArrayList<>();
-		
+		boolean flag = false ; 
 
 		try(Connection c = DBConnect.getConnected()){
 			
@@ -101,20 +102,31 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			
 		 ResultSet rs =	ps.executeQuery();
 		 Formatter fmt = new Formatter();  
-		 
-		 fmt.format("%10s %12s %9s %10s %12s\n","EmpName "," GPMName ","EmpWage","EmpDays","TotalWage");
 		
-		 while(rs.next()) {
-			String a = rs.getString("e.empname");
-			String b = rs.getString("g.gname");
-			int d = rs.getInt("e.empwage");
-			int e = rs.getInt("e.empdutyday");
-			int f = rs.getInt("totalWage");
-			fmt.format("%10s %10s %10s %10s %10s\n", a , b ,d,e,f);
-			
-			 
-		 }
-		 System.out.println(fmt);
+		
+		
+			 if(rs.next()){
+				 
+				 fmt.format("%10s %12s %9s %10s %12s\n","EmpName "," GPMName ","EmpWage","EmpDays","TotalWage");
+				 while(rs.next()) {
+					 	flag = true ; 
+						String a = rs.getString("e.empname");
+						String b = rs.getString("g.gname");
+						int d = rs.getInt("e.empwage");
+						int e = rs.getInt("e.empdutyday");
+						int f = rs.getInt("totalWage");
+						fmt.format("%10s %10s %10s %10s %10s\n", a , b ,d,e,f);
+						
+						 
+					 }
+					 System.out.println(Console.BLACK_BOLD+fmt+Console.RESET);
+			 }else {
+				 System.out.println(Console.RED+"List is Empty Or there no project by this name");
+			 }
+		
+		 
+		}catch(SQLException fd) {
+			System.out.println(fd.getMessage());
 		}
 		
 		
@@ -237,34 +249,38 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public String assignProjToEmp(String pname, int id , String ename) throws EmployeeException, SQLException {
+	public String assignProjToEmp(String pname, int id , String ename ,String gname ) throws EmployeeException, SQLException {
 		String message = "Error in Assigning" ;
 		
 		
 		try(Connection c = DBConnect.getConnected()){
 			
 			PreparedStatement  ps = c.prepareStatement("update employee set projAssigned = (select ProjectNo from projects where pname = ?) where empId = ? and empname = ?");
+			PreparedStatement  gs = c.prepareStatement("update employee set GPOAssigned = (select ID from grampanchayatmember where gname = ?) where empId = ? and empname = ?");
 			
 			ps.setString(1, pname);
 			ps.setInt(2, id);
 			ps.setString(3, ename);
 			
-			int n = ps.executeUpdate();
+			gs.setString(1, gname);
+			gs.setInt(2, id);
+			gs.setString(3, ename);
 			
-			if(n > 0) {
+			int n = ps.executeUpdate();
+			int x = gs.executeUpdate();
+			
+			if(n > 0  && x > 0 ) {
 				message = "Updated Successfully";
 			}
 		}catch(SQLException e) {
 			
-			
+			System.err.println(e.getMessage());
 			
 		}
 		
 		return message;
 	}
 
-	
-	
 	@Override
 	public String addEmloyee1(Employee e) throws EmployeeException, SQLException {
 		String message = "Employee is not added" ;
@@ -294,7 +310,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		}
 		
 		
-		return null;
+		return message;
 	}
 	
 	

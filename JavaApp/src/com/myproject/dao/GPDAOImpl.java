@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.myproject.bean.GPM;
 import com.myproject.exception.GPException;
+import com.myproject.util.Console;
 import com.myproject.util.DBConnect;
 
 public  class GPDAOImpl implements GPDAO {
@@ -16,7 +17,7 @@ public  class GPDAOImpl implements GPDAO {
 	@Override
 	public String AddnewGPMemeber(GPM gmp) throws SQLException , GPException {
 		
-		String m = null; 
+		String m = Console.RED+"There is some error while adding"+Console.RESET; 
 		
 		try(Connection c = DBConnect.getConnected()){
 			
@@ -31,15 +32,15 @@ public  class GPDAOImpl implements GPDAO {
 			
 			if(ex > 0 ) {
 				
-				m = "Values are Added Sucessfully" ;
+				m = Console.GREEN+"Values are Added Sucessfully"+Console.RESET ;
 			}else {
 				
-				throw new GPException("Values are not added Successfully");
+				throw new GPException(Console.RED+"Values are not added Successfully"+Console.RESET);
 				
 			}
 			c.close();
 		}catch(SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println(Console.RED+e.getMessage()+Console.RESET);
 
 		}
 

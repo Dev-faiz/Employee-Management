@@ -7,6 +7,7 @@ import com.myproject.bean.GPM;
 import com.myproject.dao.GPDAO;
 import com.myproject.dao.GPDAOImpl;
 import com.myproject.exception.GPException;
+import com.myproject.util.Console;
 
 public class AddGPM {
 	 
@@ -14,7 +15,7 @@ public class AddGPM {
 		
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("Enter Name of Assigned Gram Panchayat Member Name");
+		System.out.println(Console.CYAN+"Enter Name of Assigned Gram Panchayat Member Name");
 		String gname = 	in.next();
 		
 		System.out.println("Enter Location of where he is assigned ");
@@ -24,7 +25,7 @@ public class AddGPM {
 		String username = in.next();
 		
 		
-		System.out.println("Give Password to Gram Panchayat Member");
+		System.out.println("Give Password to Gram Panchayat Member"+Console.RESET);
 		String password = in.next();
 		
 		

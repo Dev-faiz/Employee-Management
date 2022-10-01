@@ -3,7 +3,7 @@ package com.myproject.util;
 import java.sql.Connection;
 
 public class DBMain {
-	public static void main(String[] args) {
+	public static void main() {
 		
 		Connection con = DBConnect.getConnected();
 		

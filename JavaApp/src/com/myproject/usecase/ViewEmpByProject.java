@@ -14,7 +14,7 @@ public class ViewEmpByProject {
 		
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("Add details");
+		System.out.println("Add Project Name");
 		String x = in.nextLine();
 		EmployeeDAO pd = new EmployeeDAOImpl();
 		

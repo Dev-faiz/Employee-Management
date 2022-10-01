@@ -1,5 +1,7 @@
 package com.myproject.bean;
 
+import com.myproject.util.Console;
+
 public class Employee {
 	int empId ; 
 	String empName ; 
@@ -100,8 +102,18 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", empName=" + empName + ", empGender=" + empGender + ", empWage=" + empWage
-				+ ", empDuty=" + empDuty + ", projAssigned=" + projAssigned + ", GpoAssigned=" + GpoAssigned + "]";
+		return 
+				"=============================================\n"+
+				Console.BLACK_BOLD
+				+ "empId        : " + empId + "\n"
+				+ "empName      : " + empName + "\n"
+				+ "empGender    : " + empGender + "\n"
+				+ "empWage      : " + empWage +"\n" 
+				+ "empDuty      : " + empDuty + "\n"
+				+ "projAssigned : " + projAssigned + "\n"
+				+ "GpoAssigned  : " + GpoAssigned+
+				Console.RESET 
+				+"\n===========================================";
 	} 
 	
 	

@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 import com.myproject.bean.Employee;
 import com.myproject.bean.GPM;
@@ -13,6 +12,7 @@ import com.myproject.bean.Project;
 import com.myproject.dao.EmployeeDAO;
 import com.myproject.dao.EmployeeDAOImpl;
 import com.myproject.exception.EmployeeException;
+import com.myproject.util.Console;
 import com.myproject.util.DBConnect;
 
 public class AddEmployee {
@@ -21,7 +21,7 @@ public class AddEmployee {
 		
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println("Enter Name of Empolyee");
+		System.out.println(Console.CYAN+"Enter Name of Empolyee");
 		String ename = 	in.nextLine();
 		
 		
@@ -31,12 +31,12 @@ public class AddEmployee {
 		System.out.println("Enter wage of Employee per day");
 		int wage = in.nextInt();
 		
-		System.out.println("Enter number of days Employee is given service");
+		System.out.println("Enter number of days Employee is given service"+Console.RESET);
 		int day = in.nextInt();
 		
 		EmployeeDAO ed = new EmployeeDAOImpl();
 		String m =	ed.addEmployee(new Employee(ename , gender , wage , day ));	
-		System.out.println(m);
+		System.out.println(Console.GREEN+m+Console.RESET);
 		
 	}
 	
