@@ -17,7 +17,7 @@ public class DBConnect {
 			e.printStackTrace();
 		}
 		
-		String url = "jdbc:mysql://localhost:3306/MGNREGA" ;
+		String url = "jdbc:mysql://localhost:3306/mgnrega" ;
 		
 		
 		
