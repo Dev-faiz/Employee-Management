@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.myproject.bean.Project;
 import com.myproject.exception.ProjectException;
+import com.myproject.util.Console;
 import com.myproject.util.DBConnect;
 
 public class ProjectDAOImpl  implements ProjectDAO{
@@ -19,7 +20,7 @@ public class ProjectDAOImpl  implements ProjectDAO{
 	@Override
 	public String addProject(Project p) throws ProjectException, SQLException {
 		
-		String message = "There Something Wrong in inserting Project " ;
+		String message = Console.RED+"There Something Wrong in inserting Project " ;
 		
 		try(Connection c = DBConnect.getConnected()){
 				
@@ -31,7 +32,7 @@ public class ProjectDAOImpl  implements ProjectDAO{
 			int update = ps.executeUpdate();
 			
 			if(update > 0 ) {
-				message = "Entry added successfully" ;
+				message = Console.GREEN+"Entry added successfully" ;
 			}else {
 				throw new ProjectException("Something wrong in values");
 			}
@@ -49,7 +50,7 @@ public class ProjectDAOImpl  implements ProjectDAO{
 
 		
 			
-		String message = "There is some error while assigning task please try again" ;
+		String message = Console.RED+"There is some error while assigning task please try again"+Console.RESET ;
 		try(Connection c = DBConnect.getConnected()){
 			
 			PreparedStatement ps = c.prepareStatement("insert into p_g values("
@@ -62,7 +63,7 @@ public class ProjectDAOImpl  implements ProjectDAO{
 			int update = ps.executeUpdate();
 			
 			if(update > 0) {
-				message = "Project " + p + " successfully assigned to " + g + " GP memeber";
+				message = Console.GREEN+"Project " + p + " successfully assigned to " + g + " GP memeber"+Console.RESET;
 			}
 			
 		}catch(SQLException c) {
@@ -99,7 +100,7 @@ public class ProjectDAOImpl  implements ProjectDAO{
 			
 		}catch(SQLException e) {
 			
-			System.out.println(e.getMessage());
+			System.out.println(Console.RED+e.getMessage()+Console.RESET);
 		}
 		
 		

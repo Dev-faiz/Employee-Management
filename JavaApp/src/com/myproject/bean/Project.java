@@ -25,7 +25,7 @@ public class Project {
 
 	public Formatter forString() {
 		Formatter fmt = new Formatter();
-		return  fmt.format("%15s %29s %20s\n" ,projectId, projectName,location)  ;
+		return  fmt.format("%15s %29s %26s\n" ,projectId, projectName,location)  ;
 	}
 	public int getProjectId() {
 		return projectId;
