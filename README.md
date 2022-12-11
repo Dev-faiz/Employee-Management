@@ -1,6 +1,3 @@
-# zealous-price-4318
-
-
 
 # MGNREGA Employee System
 
@@ -15,6 +12,7 @@
 - GramPanchayat member can login/logout and can register through special key.
 - GramPanchayat member can register an employee and assign him to work.
 - GramPanchayat member can see number of employee working under him.
+- GramPanchayat member can see all of his projects.
 - Employee can see their wages and his working location. 
 
 
@@ -28,7 +26,8 @@
 
 # Lessons Learned
 
-- Gain excessive knowledge on application of Java and MySQL.
+- Gain excessive knowledge on application of Java, MySQL and Hibernate.
+- Implementation of Executing SQL operations with Hibernatie ORM software and Java .
 - Enjoyed the process of learning and creating the application.
 
 # Overview of my work
